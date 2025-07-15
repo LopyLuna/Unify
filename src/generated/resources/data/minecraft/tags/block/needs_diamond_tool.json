@@ -1,0 +1,12 @@
+{
+  "values": [
+    "unify:tungsten_block",
+    "unify:raw_tungsten_block",
+    "unify:tungsten_ore",
+    "unify:deepslate_tungsten_ore",
+    "unify:thorium_block",
+    "unify:raw_thorium_block",
+    "unify:thorium_ore",
+    "unify:deepslate_thorium_ore"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "values": [
+    "unify:aluminum_ore",
+    "unify:deepslate_aluminum_ore",
+    "unify:tin_ore",
+    "unify:deepslate_tin_ore",
+    "unify:osmium_ore",
+    "unify:deepslate_osmium_ore",
+    "unify:zinc_ore",
+    "unify:deepslate_zinc_ore",
+    "unify:lead_ore",
+    "unify:deepslate_lead_ore",
+    "unify:nickel_ore",
+    "unify:deepslate_nickel_ore",
+    "unify:silver_ore",
+    "unify:deepslate_silver_ore",
+    "unify:platinum_ore",
+    "unify:deepslate_platinum_ore",
+    "unify:tungsten_ore",
+    "unify:deepslate_tungsten_ore",
+    "unify:uranium_ore",
+    "unify:deepslate_uranium_ore",
+    "unify:thorium_ore",
+    "unify:deepslate_thorium_ore"
+  ]
+}

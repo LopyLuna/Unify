@@ -1,0 +1,22 @@
+{
+  "values": [
+    "unify:tin_ingot",
+    "unify:osmium_ingot",
+    "unify:zinc_ingot",
+    "unify:lead_ingot",
+    "unify:nickel_ingot",
+    "unify:silver_ingot",
+    "unify:platinum_ingot",
+    "unify:tungsten_ingot",
+    "unify:wrought_iron_ingot",
+    "unify:tarnished_gold_ingot",
+    "unify:cast_iron_ingot",
+    "unify:rose_gold_ingot",
+    "unify:constantan_ingot",
+    "unify:invar_ingot",
+    "unify:electrum_ingot",
+    "unify:bronze_ingot",
+    "unify:brass_ingot",
+    "unify:steel_ingot"
+  ]
+}

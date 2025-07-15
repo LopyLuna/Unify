@@ -1,0 +1,29 @@
+{
+  "values": [
+    "unify:copper_rod",
+    "unify:iron_rod",
+    "unify:gold_rod",
+    "unify:netherite_rod",
+    "unify:aluminum_rod",
+    "unify:tin_rod",
+    "unify:osmium_rod",
+    "unify:zinc_rod",
+    "unify:lead_rod",
+    "unify:nickel_rod",
+    "unify:silver_rod",
+    "unify:platinum_rod",
+    "unify:tungsten_rod",
+    "unify:uranium_rod",
+    "unify:thorium_rod",
+    "unify:wrought_iron_rod",
+    "unify:tarnished_gold_rod",
+    "unify:cast_iron_rod",
+    "unify:rose_gold_rod",
+    "unify:constantan_rod",
+    "unify:invar_rod",
+    "unify:electrum_rod",
+    "unify:bronze_rod",
+    "unify:brass_rod",
+    "unify:steel_rod"
+  ]
+}

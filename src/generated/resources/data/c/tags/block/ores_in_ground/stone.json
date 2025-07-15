@@ -1,0 +1,15 @@
+{
+  "values": [
+    "unify:aluminum_ore",
+    "unify:tin_ore",
+    "unify:osmium_ore",
+    "unify:zinc_ore",
+    "unify:lead_ore",
+    "unify:nickel_ore",
+    "unify:silver_ore",
+    "unify:platinum_ore",
+    "unify:tungsten_ore",
+    "unify:uranium_ore",
+    "unify:thorium_ore"
+  ]
+}

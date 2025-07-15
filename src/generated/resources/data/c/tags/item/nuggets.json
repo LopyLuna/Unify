@@ -1,0 +1,27 @@
+{
+  "values": [
+    "unify:copper_nugget",
+    "unify:netherite_nugget",
+    "unify:aluminum_nugget",
+    "unify:tin_nugget",
+    "unify:osmium_nugget",
+    "unify:zinc_nugget",
+    "unify:lead_nugget",
+    "unify:nickel_nugget",
+    "unify:silver_nugget",
+    "unify:platinum_nugget",
+    "unify:tungsten_nugget",
+    "unify:uranium_nugget",
+    "unify:thorium_nugget",
+    "unify:wrought_iron_nugget",
+    "unify:tarnished_gold_nugget",
+    "unify:cast_iron_nugget",
+    "unify:rose_gold_nugget",
+    "unify:constantan_nugget",
+    "unify:invar_nugget",
+    "unify:electrum_nugget",
+    "unify:bronze_nugget",
+    "unify:brass_nugget",
+    "unify:steel_nugget"
+  ]
+}

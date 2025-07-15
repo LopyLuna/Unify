@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unify:block/wrought_iron_block"
+    }
+  }
+}

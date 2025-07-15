@@ -1,0 +1,15 @@
+{
+  "values": [
+    "unify:raw_aluminum",
+    "unify:raw_tin",
+    "unify:raw_osmium",
+    "unify:raw_zinc",
+    "unify:raw_lead",
+    "unify:raw_nickel",
+    "unify:raw_silver",
+    "unify:raw_platinum",
+    "unify:raw_tungsten",
+    "unify:raw_uranium",
+    "unify:raw_thorium"
+  ]
+}

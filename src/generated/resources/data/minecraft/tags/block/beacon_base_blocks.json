@@ -1,0 +1,22 @@
+{
+  "values": [
+    "unify:tin_block",
+    "unify:osmium_block",
+    "unify:zinc_block",
+    "unify:lead_block",
+    "unify:nickel_block",
+    "unify:silver_block",
+    "unify:platinum_block",
+    "unify:tungsten_block",
+    "unify:wrought_iron_block",
+    "unify:tarnished_gold_block",
+    "unify:cast_iron_block",
+    "unify:rose_gold_block",
+    "unify:constantan_block",
+    "unify:invar_block",
+    "unify:electrum_block",
+    "unify:bronze_block",
+    "unify:brass_block",
+    "unify:steel_block"
+  ]
+}

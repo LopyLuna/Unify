@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unify:block/osmium_ore"
+    }
+  }
+}

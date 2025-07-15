@@ -1,0 +1,19 @@
+{
+  "values": [
+    "unify:aluminum_block",
+    "unify:raw_aluminum_block",
+    "unify:aluminum_ore",
+    "unify:deepslate_aluminum_ore",
+    "unify:tin_block",
+    "unify:raw_tin_block",
+    "unify:tin_ore",
+    "unify:deepslate_tin_ore",
+    "unify:osmium_block",
+    "unify:raw_osmium_block",
+    "unify:osmium_ore",
+    "unify:deepslate_osmium_ore",
+    "unify:wrought_iron_block",
+    "unify:cast_iron_block",
+    "unify:constantan_block"
+  ]
+}

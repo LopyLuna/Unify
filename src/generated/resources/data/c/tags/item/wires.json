@@ -1,0 +1,29 @@
+{
+  "values": [
+    "unify:copper_wire",
+    "unify:iron_wire",
+    "unify:gold_wire",
+    "unify:netherite_wire",
+    "unify:aluminum_wire",
+    "unify:tin_wire",
+    "unify:osmium_wire",
+    "unify:zinc_wire",
+    "unify:lead_wire",
+    "unify:nickel_wire",
+    "unify:silver_wire",
+    "unify:platinum_wire",
+    "unify:tungsten_wire",
+    "unify:uranium_wire",
+    "unify:thorium_wire",
+    "unify:wrought_iron_wire",
+    "unify:tarnished_gold_wire",
+    "unify:cast_iron_wire",
+    "unify:rose_gold_wire",
+    "unify:constantan_wire",
+    "unify:invar_wire",
+    "unify:electrum_wire",
+    "unify:bronze_wire",
+    "unify:brass_wire",
+    "unify:steel_wire"
+  ]
+}

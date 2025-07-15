@@ -1,0 +1,29 @@
+{
+  "values": [
+    "unify:copper_gear",
+    "unify:iron_gear",
+    "unify:gold_gear",
+    "unify:netherite_gear",
+    "unify:aluminum_gear",
+    "unify:tin_gear",
+    "unify:osmium_gear",
+    "unify:zinc_gear",
+    "unify:lead_gear",
+    "unify:nickel_gear",
+    "unify:silver_gear",
+    "unify:platinum_gear",
+    "unify:tungsten_gear",
+    "unify:uranium_gear",
+    "unify:thorium_gear",
+    "unify:wrought_iron_gear",
+    "unify:tarnished_gold_gear",
+    "unify:cast_iron_gear",
+    "unify:rose_gold_gear",
+    "unify:constantan_gear",
+    "unify:invar_gear",
+    "unify:electrum_gear",
+    "unify:bronze_gear",
+    "unify:brass_gear",
+    "unify:steel_gear"
+  ]
+}

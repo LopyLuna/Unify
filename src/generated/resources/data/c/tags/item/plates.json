@@ -1,0 +1,29 @@
+{
+  "values": [
+    "unify:copper_sheet",
+    "unify:iron_sheet",
+    "unify:gold_sheet",
+    "unify:netherite_sheet",
+    "unify:aluminum_sheet",
+    "unify:tin_sheet",
+    "unify:osmium_sheet",
+    "unify:zinc_sheet",
+    "unify:lead_sheet",
+    "unify:nickel_sheet",
+    "unify:silver_sheet",
+    "unify:platinum_sheet",
+    "unify:tungsten_sheet",
+    "unify:uranium_sheet",
+    "unify:thorium_sheet",
+    "unify:wrought_iron_sheet",
+    "unify:tarnished_gold_sheet",
+    "unify:cast_iron_sheet",
+    "unify:rose_gold_sheet",
+    "unify:constantan_sheet",
+    "unify:invar_sheet",
+    "unify:electrum_sheet",
+    "unify:bronze_sheet",
+    "unify:brass_sheet",
+    "unify:steel_sheet"
+  ]
+}

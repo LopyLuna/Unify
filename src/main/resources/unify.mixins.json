@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.lopyluna.unify.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockMixin",
+    "BlockStateBaseMixin",
+    "BuildCreativeModeTabContentsEventMixin",
+    "CreativeModeTabMixin",
+    "ItemMixin",
+    "ItemStackMixin",
+    "LevelChunkSectionMixin",
+    "LevelMixin",
+    "RecipeManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
