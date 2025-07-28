@@ -14,6 +14,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 import static dev.lopyluna.unify.Unify.REG;
@@ -22,10 +23,15 @@ import static dev.lopyluna.unify.register.AllTags.*;
 
 @SuppressWarnings("unused")
 public class MetalOreEntry extends MetalEntry {
+    @Nullable
     public Supplier<Item> rawMaterial;
+    @Nullable
     public Supplier<Item> crushedOre;
+    @Nullable
     public Supplier<Block> rawStorage;
+    @Nullable
     public Supplier<Block> oreStone;
+    @Nullable
     public Supplier<Block> oreDeepslate;
 
     public final String rawID;
@@ -218,6 +224,7 @@ public class MetalOreEntry extends MetalEntry {
     }
 
     @Override
+    @Nullable
     public Supplier<ItemLike> get(MetalType type) {
         return switch (type) {
             case INGOT -> ingot::get;
@@ -238,6 +245,7 @@ public class MetalOreEntry extends MetalEntry {
     }
 
     @Override
+    @Nullable
     public Supplier<Block> getBlock(MetalType type) {
         return switch (type) {
             case STORAGE -> storage;

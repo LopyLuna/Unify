@@ -160,8 +160,11 @@ public class UnifyRemapper {
         }
         if (type == NA) return block;
         Block remapped = null;
-        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry)
-            remapped = entry.getBlock(type).get();
+        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry) {
+            var supplier = entry.getBlock(type);
+            if (supplier != null)
+                remapped = supplier.get();
+        }
         return remapped != null ? remapped : block;
     }
 
@@ -235,8 +238,11 @@ public class UnifyRemapper {
         }
         if (type == NA) return item;
         Item remapped = null;
-        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry)
-            remapped = entry.get(type).get().asItem();
+        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry) {
+            var supplier = entry.get(type);
+            if (supplier != null)
+                remapped = supplier.get().asItem();
+        }
         return remapped != null ? remapped : item;
     }
 
@@ -343,8 +349,11 @@ public class UnifyRemapper {
         }
 
         if (type == NA) return id;
-        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry)
-            return BuiltInRegistries.ITEM.getKey(entry.get(type).get().asItem()).toString();
+        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry) {
+            var supplier = entry.get(type);
+            if (supplier != null)
+                return BuiltInRegistries.ITEM.getKey(supplier.get().asItem()).toString();
+        }
         return id;
     }
 

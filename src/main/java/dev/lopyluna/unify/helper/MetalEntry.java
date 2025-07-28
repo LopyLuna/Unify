@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.common.Tags;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -24,22 +25,32 @@ import static dev.lopyluna.unify.register.AllTags.*;
 
 @SuppressWarnings({"unused", "all"})
 public class MetalEntry extends MaterialEntry {
-    public Supplier<Item> ingot = null;
-    public Supplier<Item> nugget = null;
-    public Supplier<Item> sheet = null;
-    public Supplier<Item> gear = null;
-    public Supplier<Item> wire = null;
-    public Supplier<Item> rod = null;
-    public Supplier<Item> dust = null;
-    public Supplier<Block> storage = null;
+    @Nullable
+    public Supplier<Item> ingot;
+    @Nullable
+    public Supplier<Item> nugget;
+    @Nullable
+    public Supplier<Item> sheet;
+    @Nullable
+    public Supplier<Item> gear;
+    @Nullable
+    public Supplier<Item> wire;
+    @Nullable
+    public Supplier<Item> rod;
+    @Nullable
+    public Supplier<Item> dust;
+    @Nullable
+    public Supplier<Block> storage;
 
-    private TagKey<Item> itemTag = null;
+    @Nullable
+    private TagKey<Item> itemTag;
 
     protected List<Supplier<Item>> itemEntries = new ArrayList<>();
     protected List<Supplier<Block>> blockEntries = new ArrayList<>();
     protected List<TagKey<Item>> tagKeys = new ArrayList<>();
 
-    protected TagKey<Block> mineable = null;
+    @Nullable
+    protected TagKey<Block> mineable;
     protected boolean beaconCompatible = false;
     protected boolean blockOf = true;
 
@@ -136,6 +147,7 @@ public class MetalEntry extends MaterialEntry {
         return this;
     }
 
+    @Nullable
     public Supplier<ItemLike> get(MetalType type) {
         return switch (type) {
             case INGOT -> ingot::get;
@@ -150,11 +162,12 @@ public class MetalEntry extends MaterialEntry {
         };
     }
 
+    @Nullable
     public Supplier<Block> getBlock(MetalType type) {
         return switch (type) {
             case STORAGE -> storage;
-            case INGOT, NUGGET, SHEET, GEAR, WIRE, ROD, DUST, RAW, RAW_CRUSHED, RAW_STORAGE, ORE_STONE, ORE_DEEPSLATE,
-                 NA -> null;
+            case INGOT, NUGGET, SHEET, GEAR, WIRE, ROD, DUST, RAW, RAW_CRUSHED, RAW_STORAGE, ORE_STONE, ORE_DEEPSLATE, NA ->
+                    null;
         };
     }
 

@@ -15,6 +15,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = Unify.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
+@SuppressWarnings("unused")
 public class ServerEvents {
 
     @SubscribeEvent
