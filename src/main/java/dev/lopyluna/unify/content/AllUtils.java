@@ -10,11 +10,24 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import oshi.util.tuples.Pair;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class AllUtils {
+
+    public static <A, B> Pair<A, B> pair(A a, B b) {
+        return new Pair<>(a, b);
+    }
+
+    @SafeVarargs
+    public static <T> List<T> array(T... values) {
+        return values.length == 0 ? new ArrayList<>() : new ArrayList<>(Arrays.asList(values));
+    }
 
     public static ResourceLocation inputFromResult(ItemLike input, ItemLike result) {
         return Unify.loc(safeId(result) + "_from_" + safeId(input));

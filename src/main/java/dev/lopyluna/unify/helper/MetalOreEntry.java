@@ -177,7 +177,7 @@ public class MetalOreEntry extends MetalEntry {
         return this;
     }
 
-    public MetalOreEntry rawMaterial(ItemLike item) {
+    public MetalOreEntry rawChunk(ItemLike item) {
         rawMaterial = item::asItem;
         return this;
     }
@@ -207,12 +207,12 @@ public class MetalOreEntry extends MetalEntry {
         return this;
     }
 
-    public MetalOreEntry oreDeepslate(ItemLike item) {
+    public MetalOreEntry oreDeep(ItemLike item) {
         if (item.asItem() instanceof BlockItem block) oreDeepslate = block::getBlock;
         return this;
     }
 
-    public MetalOreEntry oreDeepslate(Block block) {
+    public MetalOreEntry oreDeep(Block block) {
         oreDeepslate = () -> block;
         return this;
     }
@@ -226,13 +226,21 @@ public class MetalOreEntry extends MetalEntry {
             case GEAR -> gear::get;
             case WIRE -> wire::get;
             case ROD -> rod::get;
+            case BOLT -> null;
             case DUST -> dust::get;
+            case GRIT -> null;
             case STORAGE -> storage::get;
-            case RAW -> rawMaterial::get;
+            case CASING -> null;
+            case RAW_CHUNK -> rawMaterial::get;
+            case RAW_NUGGET -> null;
             case RAW_CRUSHED -> crushedOre::get;
+            case RAW_KERN -> null;
             case RAW_STORAGE -> rawStorage::get;
             case ORE_STONE -> oreStone::get;
-            case ORE_DEEPSLATE -> oreDeepslate::get;
+            case ORE_DEEP -> oreDeepslate::get;
+            case ORE_NETHER -> null;
+            case ORE_END -> null;
+            case MOLTEN -> null;
             case NA -> null;
         };
     }
@@ -241,10 +249,14 @@ public class MetalOreEntry extends MetalEntry {
     public Supplier<Block> getBlock(MetalType type) {
         return switch (type) {
             case STORAGE -> storage;
+            case CASING -> null;
             case RAW_STORAGE -> rawStorage;
             case ORE_STONE -> oreStone;
-            case ORE_DEEPSLATE -> oreDeepslate;
-            case INGOT, NUGGET, SHEET, GEAR, WIRE, ROD, DUST, RAW, RAW_CRUSHED, NA -> null;
+            case ORE_DEEP -> oreDeepslate;
+            case ORE_NETHER -> null;
+            case ORE_END -> null;
+            case MOLTEN -> null;
+            case INGOT, NUGGET, SHEET, GEAR, WIRE, ROD, BOLT, DUST, GRIT, RAW_CHUNK, RAW_NUGGET, RAW_CRUSHED, RAW_KERN, NA -> null;
         };
     }
 

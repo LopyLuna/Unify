@@ -13,6 +13,7 @@ public class ItemMixin {
 
     @Inject(method = "getDefaultInstance", at = @At("RETURN"), cancellable = true)
     private void unify$remapDefaultInstance(CallbackInfoReturnable<ItemStack> cir) {
+        //if (DISABLE_ITEM_REMAP.get()) return;
         var original = cir.getReturnValue();
         var remapped = UnifyRemapper.remapItemStack(original);
         cir.setReturnValue(remapped);

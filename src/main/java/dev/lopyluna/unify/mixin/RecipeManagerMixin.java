@@ -18,6 +18,7 @@ public abstract class RecipeManagerMixin {
 
     @Inject(method = "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V", at = @At("HEAD"))
     private void injectAfterApply(Map<ResourceLocation, JsonElement> jsons, ResourceManager manager, ProfilerFiller profiler, CallbackInfo ci) {
+        //if (DISABLE_RECIPE_REMAP.get()) return;
         var outputs = List.of("result", "item_output", "secondary", "output", "results", "item_outputs", "secondaries", "outputs", "value", "values");
         var inputs = List.of(
                 "ingredient", "input0", "input1", "input2", "input3",

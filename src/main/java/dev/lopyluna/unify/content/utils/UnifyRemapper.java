@@ -12,6 +12,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -27,9 +28,9 @@ import static dev.lopyluna.unify.helper.MetalType.GEAR;
 import static dev.lopyluna.unify.helper.MetalType.INGOT;
 import static dev.lopyluna.unify.helper.MetalType.NA;
 import static dev.lopyluna.unify.helper.MetalType.NUGGET;
-import static dev.lopyluna.unify.helper.MetalType.ORE_DEEPSLATE;
+import static dev.lopyluna.unify.helper.MetalType.ORE_DEEP;
 import static dev.lopyluna.unify.helper.MetalType.ORE_STONE;
-import static dev.lopyluna.unify.helper.MetalType.RAW;
+import static dev.lopyluna.unify.helper.MetalType.RAW_CHUNK;
 import static dev.lopyluna.unify.helper.MetalType.RAW_CRUSHED;
 import static dev.lopyluna.unify.helper.MetalType.RAW_STORAGE;
 import static dev.lopyluna.unify.helper.MetalType.ROD;
@@ -80,6 +81,7 @@ public class UnifyRemapper {
     public static void buildItemRemap() {
         for (var entry : BuiltInRegistries.ITEM.entrySet()) {
             var item = entry.getValue();
+            if (item instanceof BlockItem) continue;
             var itemID = BuiltInRegistries.ITEM.getKey(item);
             if (itemID.getNamespace().equals(Unify.MOD_ID)) continue;
             var remap = remapItems(item);
@@ -158,10 +160,12 @@ public class UnifyRemapper {
             check = checkTypeForBlock("golden", id, tags);
             if (check != NA) type = check;
         }
-        if (type == NA) return block;
+        if (type == NA || type == null) return block;
         Block remapped = null;
-        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry)
-            remapped = entry.getBlock(type).get();
+        if (!metal.isEmpty() && MetalEntry.typeEntries.get(metal) instanceof MetalEntry entry) {
+            var entryType = entry.getBlock(type);
+            remapped = entryType != null ? entryType.get() : null;
+        }
         return remapped != null ? remapped : block;
     }
 
@@ -170,7 +174,7 @@ public class UnifyRemapper {
         else if (tags.contains(blockC("storage_blocks/raw_" + metal))) return RAW_STORAGE;
         else if (tags.contains(blockC("ores/" + metal))) {
             if (tags.contains(blockC("ores_in_ground/stone"))) return ORE_STONE;
-            else if (tags.contains(blockC("ores_in_ground/deepslate"))) return ORE_DEEPSLATE;
+            else if (tags.contains(blockC("ores_in_ground/deepslate"))) return ORE_DEEP;
         } else if (id.equals(metal + "_storage_block") || id.equals("storage_block_" + metal) || id.equals(metal + "_storage") || id.equals("storage_" + metal) || id.equals(metal + "_block") || id.equals("block_" + metal))
             return STORAGE;
         else if (id.equals("stone_" + metal + "_ore")
@@ -188,7 +192,7 @@ public class UnifyRemapper {
                 || id.equals(metal + "_ore_deepslate")
                 || id.equals("deepslate_ore_" + metal)
                 || id.equals("ore_deepslate_" + metal)
-        ) return ORE_DEEPSLATE;
+        ) return ORE_DEEP;
         else if (id.equals("raw_" + metal + "_storage_block")
                 || id.equals("storage_block_" + metal + "_raw")
                 || id.equals("raw_" + metal + "_storage")
@@ -215,6 +219,7 @@ public class UnifyRemapper {
 
     @SuppressWarnings("deprecation")
     private static Item remapItems(Item item) {
+        if (item instanceof BlockItem) return item;
         var type = NA;
         var registry = item.builtInRegistryHolder();
         var tags = registry.tags().toList();
@@ -222,11 +227,10 @@ public class UnifyRemapper {
         var newList = new ArrayList<>(MaterialEntry.types);
         newList.sort((a, b) -> Integer.compare(b.length(), a.length()));
         var metal = "";
-        for (var s : newList)
-            if (id.contains(s)) {
-                metal = s;
-                break;
-            }
+        for (var s : newList) if (id.contains(s)) {
+            metal = s;
+            break;
+        }
         var check = checkTypeForItem(metal, id, tags);
         if (check != NA) type = check;
         if (type == NA && metal.equals("gold")) {
@@ -250,12 +254,12 @@ public class UnifyRemapper {
         else if (tags.contains(itemC("rods/" + metal))) return ROD;
         else if (tags.contains(itemC("dusts/" + metal))) return DUST;
 
-        else if (tags.contains(itemC("raw_materials/" + metal))) return RAW;
+        else if (tags.contains(itemC("raw_materials/" + metal))) return RAW_CHUNK;
         else if (tags.contains(itemC("dusts/raw_" + metal))) return RAW_CRUSHED;
         else if (tags.contains(itemC("storage_blocks/raw_" + metal))) return RAW_STORAGE;
         else if (tags.contains(itemC("ores/" + metal))) {
             if (tags.contains(itemC("ores_in_ground/stone"))) return ORE_STONE;
-            else if (tags.contains(itemC("ores_in_ground/deepslate"))) return ORE_DEEPSLATE;
+            else if (tags.contains(itemC("ores_in_ground/deepslate"))) return ORE_DEEP;
         } else if (id.equals(metal + "_storage_block") || id.equals("storage_block_" + metal) || id.equals(metal + "_storage") || id.equals("storage_" + metal) || id.equals(metal + "_block") || id.equals("block_" + metal))
             return STORAGE;
         else if (id.equals(metal + "_ingot") || id.equals("ingot_" + metal)) return INGOT;
@@ -268,7 +272,7 @@ public class UnifyRemapper {
         else if (id.equals(metal + "_dust") || id.equals("dust_" + metal) || id.equals(metal + "_crushed") || id.equals("crushed_" + metal))
             return DUST;
 
-        else if (id.equals(metal + "_raw") || id.equals("raw_" + metal)) return RAW;
+        else if (id.equals(metal + "_raw") || id.equals("raw_" + metal)) return RAW_CHUNK;
         else if (id.equals("crushed_" + metal + "_raw")
                 || id.equals("raw_" + metal + "_crushed")
                 || id.equals(metal + "_crushed_raw")
@@ -297,7 +301,7 @@ public class UnifyRemapper {
                 || id.equals(metal + "_ore_deepslate")
                 || id.equals("deepslate_ore_" + metal)
                 || id.equals("ore_deepslate_" + metal)
-        ) return ORE_DEEPSLATE;
+        ) return ORE_DEEP;
         else if (id.equals("raw_" + metal + "_storage_block")
                 || id.equals("storage_block_" + metal + "_raw")
                 || id.equals("raw_" + metal + "_storage")
@@ -359,7 +363,7 @@ public class UnifyRemapper {
         else if (itemId.equals("rods/" + metal)) return ROD;
         else if (itemId.equals("dusts/" + metal)) return DUST;
 
-        else if (itemId.equals("raw_materials/" + metal)) return RAW;
+        else if (itemId.equals("raw_materials/" + metal)) return RAW_CHUNK;
         else if (itemId.equals("dusts/raw_" + metal)) return RAW_CRUSHED;
         else if (itemId.equals("storage_blocks/raw_" + metal)) return RAW_STORAGE;
 
@@ -375,7 +379,7 @@ public class UnifyRemapper {
         else if (itemId.equals(metal + "_dust") || itemId.equals("dust_" + metal) || itemId.equals(metal + "_crushed") || itemId.equals("crushed_" + metal))
             return DUST;
 
-        else if (itemId.equals(metal + "_raw") || itemId.equals("raw_" + metal)) return RAW;
+        else if (itemId.equals(metal + "_raw") || itemId.equals("raw_" + metal)) return RAW_CHUNK;
         else if (itemId.equals("crushed_" + metal + "_raw")
                 || itemId.equals("raw_" + metal + "_crushed")
                 || itemId.equals(metal + "_crushed_raw")
@@ -404,7 +408,7 @@ public class UnifyRemapper {
                 || itemId.equals(metal + "_ore_deepslate")
                 || itemId.equals("deepslate_ore_" + metal)
                 || itemId.equals("ore_deepslate_" + metal)
-        ) return ORE_DEEPSLATE;
+        ) return ORE_DEEP;
         else if (itemId.equals("raw_" + metal + "_storage_block")
                 || itemId.equals("storage_block_" + metal + "_raw")
                 || itemId.equals("raw_" + metal + "_storage")

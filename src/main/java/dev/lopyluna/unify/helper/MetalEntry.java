@@ -144,17 +144,22 @@ public class MetalEntry extends MaterialEntry {
             case GEAR -> gear::get;
             case WIRE -> wire::get;
             case ROD -> rod::get;
+            case BOLT -> null;
             case DUST -> dust::get;
+            case GRIT -> null;
             case STORAGE -> storage::get;
-            case RAW, RAW_CRUSHED, RAW_STORAGE, ORE_STONE, ORE_DEEPSLATE, NA -> null;
+            case CASING -> null;
+            case MOLTEN -> null;
+            case RAW_CHUNK, RAW_NUGGET, RAW_CRUSHED, RAW_KERN, RAW_STORAGE, ORE_STONE, ORE_DEEP, ORE_NETHER, ORE_END, NA -> null;
         };
     }
 
     public Supplier<Block> getBlock(MetalType type) {
         return switch (type) {
             case STORAGE -> storage;
-            case INGOT, NUGGET, SHEET, GEAR, WIRE, ROD, DUST, RAW, RAW_CRUSHED, RAW_STORAGE, ORE_STONE, ORE_DEEPSLATE,
-                 NA -> null;
+            case CASING -> null;
+            case MOLTEN -> null;
+            case INGOT, NUGGET, SHEET, GEAR, WIRE, ROD, BOLT, DUST, GRIT, RAW_CHUNK, RAW_NUGGET, RAW_CRUSHED, RAW_KERN, RAW_STORAGE, ORE_STONE, ORE_DEEP, ORE_NETHER, ORE_END, NA -> null;
         };
     }
 

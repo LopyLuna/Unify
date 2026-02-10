@@ -1,6 +1,7 @@
 package dev.lopyluna.unify;
 
 import com.mojang.logging.LogUtils;
+import dev.lopyluna.unify.config.CommonConfig;
 import dev.lopyluna.unify.content.UnifyDatagen;
 import dev.lopyluna.unify.content.utils.UnifyRegistration;
 import dev.lopyluna.unify.content.utils.Registration;
@@ -11,6 +12,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import org.slf4j.Logger;
 
 import static dev.lopyluna.unify.register.AllCreativeTab.BASE_TAB;
@@ -24,7 +26,10 @@ public class Unify {
     public static UnifyRegistration REGISTER = new UnifyRegistration(MOD_ID);
     public static Registration REG = new Registration(MOD_ID);
 
-    public Unify(IEventBus modEventBus, ModContainer modContainer) {
+    public Unify(IEventBus modEventBus, ModContainer container) {
+        container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC);
+        container.registerConfig(ModConfig.Type.STARTUP, CommonConfig.SPEC);
+
         REGISTER.register(modEventBus);
         AllCreativeTab.register();
         REG.registerEventListeners(modEventBus);

@@ -28,6 +28,7 @@ public abstract class ItemStackMixin {
 
     @Inject(method = "getItem", at = @At("HEAD"), cancellable = true)
     private void unify$remapGetItem(CallbackInfoReturnable<Item> cir) {
+        //if (DISABLE_ITEM_REMAP.get()) return;
         if (this.isEmpty()) {
             cir.setReturnValue(Items.AIR);
         } else {

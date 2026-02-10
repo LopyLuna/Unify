@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class BlockMixin {
     @Inject(method = "defaultBlockState", at = @At("HEAD"), cancellable = true)
     private void unify$remapDefaultBlockState(CallbackInfoReturnable<BlockState> cir) {
+        //if (DISABLE_BLOCK_REMAP.get()) return;
         var self = (Block) (Object) this;
         var remapped = UnifyRemapper.remapBlock(self);
         if (!remapped.equals(self)) cir.setReturnValue(remapped.defaultBlockState());

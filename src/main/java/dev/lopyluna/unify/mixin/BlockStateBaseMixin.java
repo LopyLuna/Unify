@@ -22,6 +22,7 @@ public abstract class BlockStateBaseMixin extends StateHolder<Block, BlockState>
 
     @Inject(method = "getBlock", at = @At("HEAD"), cancellable = true)
     private void unify$remapBlock(CallbackInfoReturnable<Block> cir) {
+        //if (DISABLE_BLOCK_REMAP.get()) return;
         var original = this.owner;
         var remapped = UnifyRemapper.remapBlock(original);
         if (!remapped.equals(original)) cir.setReturnValue(remapped);

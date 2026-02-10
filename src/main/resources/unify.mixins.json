@@ -7,7 +7,6 @@
     "BlockMixin",
     "BlockStateBaseMixin",
     "BuildCreativeModeTabContentsEventMixin",
-    "CreativeModeTabMixin",
     "ItemMixin",
     "ItemStackMixin",
     "LevelChunkSectionMixin",

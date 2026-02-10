@@ -14,6 +14,7 @@ public abstract class LevelMixin {
 
     @Inject(method = "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z", at = @At("HEAD"), cancellable = true)
     private void unify$onSetBlock(BlockPos pos, BlockState state, int flags, int recursionLeft, CallbackInfoReturnable<Boolean> cir) {
+        //if (DISABLE_BLOCK_REMAP.get()) return;
         var self = (Level) (Object) this;
         var remapped = UnifyRemapper.remapBlockState(state);
         if (!remapped.equals(state)) cir.setReturnValue(self.setBlock(pos, remapped, flags, recursionLeft));

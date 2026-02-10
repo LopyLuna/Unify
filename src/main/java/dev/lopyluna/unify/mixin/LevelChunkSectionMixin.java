@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class LevelChunkSectionMixin {
     @Inject(method = "setBlockState(IIILnet/minecraft/world/level/block/state/BlockState;Z)Lnet/minecraft/world/level/block/state/BlockState;", at = @At("HEAD"), cancellable = true)
     private void onSetBlockState(int x, int y, int z, BlockState state, boolean useLocks, CallbackInfoReturnable<BlockState> cir) {
+        //if (DISABLE_BLOCK_REMAP.get()) return;
         var self = (LevelChunkSection) (Object) this;
         var remapped = UnifyRemapper.remapBlockState(state);
         if (!remapped.equals(state)) cir.setReturnValue(self.setBlockState(x, y, z, remapped, useLocks));
